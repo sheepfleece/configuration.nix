@@ -2,11 +2,14 @@
 
 {
   
+  fonts.enableDefaultFonts = true;
   # Select internationalisation properties.
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+  };
+  console = {
+    keyMap = "us";
+    font = "Lat2-Terminus16";
   };
 
   # Set your time zone.
@@ -42,7 +45,7 @@
   services.mysql.package = pkgs.mariadb;
   services.mysql.initialDatabases = [
   ];
-  services.mysql.bind = "localhost";
+  services.mysql.bind = "127.0.0.1";
   services.mysql.ensureUsers = [
     { 
       name = "sheep"; 
@@ -50,9 +53,9 @@
     }
   ];
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "sheep" ];
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
+  # users.extraGroups.vboxusers.members = [ "sheep" ];
 
   boot.extraModprobeConfig = ''
     blacklist uvcvideo

@@ -6,6 +6,7 @@
     isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = [ 
+      "wireshark"
       "wheel"           # sudo  
       "networkmanager" 
       "video"           # light

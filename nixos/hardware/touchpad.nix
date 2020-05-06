@@ -3,7 +3,7 @@
 {
   services.xserver.libinput = { 
     enable = true;
-    naturalScrolling = true;
+    # naturalScrolling = true;
     disableWhileTyping = true;
     tapping = true;
     accelProfile = "flat";

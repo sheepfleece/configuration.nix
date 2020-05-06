@@ -22,8 +22,7 @@
     xkbOptions = "grp:alt_shift_toggle";
 
     # Explicitly disable for xmonad to start
-    desktopManager.xterm.enable = false;
-    windowManager.default = "xmonad";
+    displayManager.defaultSession= "none+xmonad";
 
     windowManager.xmonad = { 
       enable = true;
@@ -106,6 +105,14 @@
       ${pkgs.xkb-switch}/bin/xkb-switch -s us
       ${pkgs.xscreensaver}/bin/xscreensaver-command -lock
     '';
+  };
+
+  services.xserver.extraLayouts = {
+    vi = {
+      description = "Layout with arrows mapped to hjkl.";
+      languages = [ "eng" ];
+      symbolsFile = "${./data/layout}";
+    };
   };
 
 }
