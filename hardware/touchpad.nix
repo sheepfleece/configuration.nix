@@ -17,6 +17,11 @@
               MatchProduct "SynPS/2 Synaptics TouchPad"
               Option "Ignore" "on"
       EndSection
+      Section "InputClass"
+              Identifier "SYNA3081:00 06CB:826F Touchpad"
+              MatchProduct "SYNA3081:00 06CB:826F Touchpad"
+              Option "NaturalScrolling" "true"
+      EndSection
     '';
   };
 

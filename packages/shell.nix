@@ -48,7 +48,8 @@
     "to"="htop"; # any problems with that?
     "ot"="opt";
 
-    # Almost deserve to be scripts, but not quite
+    "note"="jrnl Note.";
+
     "c"="$TERM & ; disown";
 
     "yd"=''

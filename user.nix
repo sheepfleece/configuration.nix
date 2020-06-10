@@ -7,7 +7,7 @@
     shell = pkgs.fish;
     extraGroups = [ 
       "wireshark"
-      "wheel"           # sudo  
+      # "wheel"           # sudo  
       "networkmanager" 
       "video"           # light
       "audio"

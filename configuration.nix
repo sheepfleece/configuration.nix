@@ -8,7 +8,7 @@
       ./hardware/hardware-configuration.nix
 
       ./desktop-environment.nix
-      ./network.nix
+      ./.network.nix
       ./packages/default.nix
       ./system.nix
       ./user.nix

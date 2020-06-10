@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   
@@ -41,24 +41,22 @@
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 8d";
 
-  services.mysql.enable = true;
-  services.mysql.package = pkgs.mariadb;
-  services.mysql.initialDatabases = [
-  ];
-  services.mysql.bind = "127.0.0.1";
-  services.mysql.ensureUsers = [
-    { 
-      name = "sheep"; 
-      ensurePermissions = {"*.*" = "ALL PRIVILEGES";} ; 
-    }
-  ];
+  # services.mysql.enable = true;
+  # services.mysql.package = pkgs.mariadb;
+  # services.mysql.initialDatabases = [
+  # ];
+  # services.mysql.bind = "127.0.0.1";
+  # services.mysql.ensureUsers = lib.singleton { 
+  #   name = "sheep"; 
+  #   ensurePermissions = { "*.*" = "ALL PRIVILEGES"; } ; 
+  # };
 
   # virtualisation.virtualbox.host.enable = true;
   # virtualisation.virtualbox.host.enableExtensionPack = true;
   # users.extraGroups.vboxusers.members = [ "sheep" ];
 
-  boot.extraModprobeConfig = ''
-    blacklist uvcvideo
-  '';
+  # boot.extraModprobeConfig = ''
+    # blacklist uvcvideo
+  # '';
 
 }
