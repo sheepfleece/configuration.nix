@@ -1,0 +1,11 @@
+xkb_symbols "basic" {
+  
+  name[Group1] = "Belarusian";
+
+  include "pl"
+
+    key <AC02>	{ [         s,          S,       sacute,       Sacute, scaron, Scaron ]	};
+    key <AD07>	{ [         u,          U,       ubreve,       Ubreve                 ] };
+    key <AB01>	{ [         z,          Z,    zabovedot,    Zabovedot, zcaron, Zcaron ]	};
+    key <AB03>	{ [         c,          C,       cacute,       Cacute, ccaron, Ccaron ]	};
+};

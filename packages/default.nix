@@ -3,9 +3,9 @@
 {
   imports = 
     [ 
-      ./shell.nix
-      ./vim.nix
     ];
+
+  programs.fish.enable = true;
 
   nixpkgs.config = { 
     allowUnfree = true; 
@@ -23,33 +23,26 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; 
-    [ # web 
-      firefox tixati w3m 
+  [ 
+      neovim
 
-      # steam wine 
+      # Web
+      w3m wget cachix
 
-      # media
-      mpv zathura ranger sxiv feh jrnl anki
-      gimp imagemagick libreoffice 
+      # Terminal
+      fish alacritty ranger 
 
-      # dev
+      # Dev
       man-pages clang-manpages posix_man_pages 
-      ctags git cabal2nix
-      # cabal2nix git nix-prefetch-git 
-      # gitAndTools.git-annex gitAndTools.gitflow
-      direnv
+      ctags git cabal2nix direnv
 
-      # utils
-      htop tree entr wget psmisc unrar
-      unzip zip fzf highlight lsof ripgrep lsscsi
+      # Utils
+      bat exa
+      htop tree entr psmisc 
+      unrar unzip zip p7zip
+      fzf lsof ripgrep lsscsi
       neofetch upower tlp linuxPackages.cpupower
       binutils cloc
-      
-      # shell/terminal
-      fish alacritty tmux
-
-      # etc
-      pandoc
 
       # (import ./emacs.nix { inherit pkgs; })
     ];

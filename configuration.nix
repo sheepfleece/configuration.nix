@@ -8,10 +8,12 @@
       ./hardware/hardware-configuration.nix
 
       ./desktop-environment.nix
-      ./.network.nix
+      ./network.nix
       ./packages/default.nix
       ./system.nix
       ./user.nix
+
+      ./cachix.nix
     ];
 
   # This value determines the NixOS release with which your system is to be

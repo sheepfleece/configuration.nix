@@ -18,7 +18,7 @@
 
   # TLP daemon
   powerManagement.cpuFreqGovernor = "powersave";
-  powerManagement.cpufreq.max = 2800000;
+  powerManagement.cpufreq.max = 3800000;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config

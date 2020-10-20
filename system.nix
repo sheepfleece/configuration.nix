@@ -31,15 +31,14 @@
 
   # Enable printer
   services.printing.enable = true;
-  services.printing.drivers = [ pkgs.hplipWithPlugin_3_16_11 ];
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
 
-  services.upower.enable = true;
   systemd.services.upower.enable = true;
 
   # Auto clean-up
   nix.optimise.automatic = true;
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 8d";
+  # nix.gc.automatic = true;
+  # nix.gc.options = "--delete-older-than 8d";
 
   # services.mysql.enable = true;
   # services.mysql.package = pkgs.mariadb;
@@ -51,12 +50,32 @@
   #   ensurePermissions = { "*.*" = "ALL PRIVILEGES"; } ; 
   # };
 
-  # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  # users.extraGroups.vboxusers.members = [ "sheep" ];
 
-  # boot.extraModprobeConfig = ''
-    # blacklist uvcvideo
-  # '';
+  nixpkgs.config.allowUnfree = true;
 
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+
+
+  users.extraGroups.vboxusers.members = [ "sheep" "root" ];
+
+  boot.extraModprobeConfig = ''
+    blacklist uvcvideo
+  '';
+
+  services.upower.enable = true;
+  # services.logind.lidSwitch = "ignore";
+
+  # systemd.services.allowPlaying = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   description = "Allowing to browse web freely after 6PM until 8PM";
+  #   wants = [ "allowPlaying.timer" ];
+  #   path = with pkgs; [ coreutils nixos-rebuild ];
+  #   script = ''
+  #     mv -n /etc/nixos/network.nix           /etc/nixos/data/network.nix
+  #     mv -n /etc/nixos/data/network-free.nix /etc/nixos/network.nix
+  #     nixos-rebuild switch
+  #   '';
+  # };
+  
 }
